@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private String BUCKETNAME = "myspace";
     private ProgressBar mProgressBar;  //进度条
     private String mPicName;
+    private boolean isUploading = false;
     private Handler mHandler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 double progress = (Double) msg.obj;
                 mProgressBar.setProgress((int)progress);
                 if(progress==100){
+                    isUploading = false;
                     Intent intent = new Intent(MainActivity.this,ActivityShowImg.class);
                     intent.putExtra("name",mPicName);
                     startActivity(intent);
@@ -110,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"请检查是否开启网络",Toast.LENGTH_SHORT).show();
                     return;
                 }
+                isUploading = true;
                 UploadManager uploadManager = new UploadManager();
                 Auth auth = Auth.create(AK, SK);
                 String token = auth.uploadToken(BUCKETNAME);
@@ -162,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == Activity.RESULT_OK && requestCode == RESQUEST_CODE_CAPTURE) {
             File file = new File(savePath);
             try {
+                isUploading = false;
                 mShowCaptureImg.setImageBitmap(getSmallBitmap(file));
                 mProgressBar.setProgress(0);
                 mHasCaptrue = true;
@@ -202,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_BACK){
-            if(mProgressBar.getProgress()<100){
+            if(isUploading){
                 Toast.makeText(this,"正在上传图片!!!",Toast.LENGTH_SHORT).show();
                 return true;
             }
