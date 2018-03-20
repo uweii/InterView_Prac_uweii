@@ -10,4 +10,4 @@ A practice for an interview
 <img src="imgs/first.png" width = "300" height = "500" alt="p1"/>
 <img src="imgs/second.png" width = "300" height = "500" alt="p1"/>
 <img src="imgs/third.png" width = "300" height = "500" alt="p1"/>
-<img src="imgs/forth.png" width = "300" height = "500" alt="p1"/>
+<img src="imgs/forth.png" width = "600" height = "500" alt="p1"/>
