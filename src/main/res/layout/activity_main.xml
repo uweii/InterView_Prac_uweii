@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.interview_prac_wu.MainActivity">
+
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="300dp"
+        android:id="@+id/iv_capture"
+        android:background="#666"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+    <ProgressBar
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressbar"
+        android:max="100"
+        android:layout_centerHorizontal="true"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_below="@id/iv_capture"/>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/progressbar"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="wrap_content"
+            android:minWidth="200dp"
+            android:id="@+id/btn_capture"
+            android:layout_height="wrap_content"
+            android:text="@string/capture" />
+        <Button
+            android:layout_width="wrap_content"
+            android:minWidth="200dp"
+            android:id="@+id/btn_upload"
+            android:layout_marginTop="3dp"
+            android:layout_height="wrap_content"
+            android:text="@string/upload" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

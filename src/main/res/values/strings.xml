@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Interview_Prac_Wu</string>
+    <string name="capture">拍摄照片</string>
+    <string name="upload">上传照片</string>
+    <string name="tip">您刚上传的照片</string>
+
+</resources>
